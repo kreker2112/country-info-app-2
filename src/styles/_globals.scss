@@ -1,14 +1,141 @@
-// Глобальные стили
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #e9ecef;
-    color: #333;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
+body,
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+input,
+button {
     margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+}
+
+:root {
+    // Colors
+    --primary-color: #007bff;
+    --secondary-color: #42b983;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --heading-color: #2c3e50;
+    --border-color: #e6e6e6;
+    --input-focus-color: #4caf50;
+    --country-card-background: linear-gradient(
+        135deg,
+        #42b983 0%,
+        #2c3e50 100%
+    );
+    --country-card-color: #fff;
+    --country-card-h3: #fff;
+    --hover-background: #eaf2e3;
+    --input-background: #fff;
+    --input-caret-color: #4caf50;
+    --year-switcher-button-color: #fff;
+    --country-item-background-color: #fff;
+    --light-gray: #f9f9f9;
+    --holiday-item-background: #fff;
+    --panel-background: #fff;
+    --button-hover-color: #0056b3;
+    --button-active-color: #28a745;
+    --navbar-background-color: #2c3e50;
+    --navbar-color: #fff;
+    --navbar-logo-color: #fff;
+    --nav-link-color: #fff;
+    --router-link-exact-active-color: #fff;
+
+    // Fonts
+    --font-family: 'Montserrat', sans-serif;
+    --heading-font-size: 26px;
+    --body-font-size: 16px;
+    --small-font-size: 14px;
+
+    // Animations and transitions
+    --transition-speed: 0.3s;
+    --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dark-theme {
+    --primary-color: #24292e;
+    --secondary-color: #373e47;
+    --background-color: #0d1117;
+    --text-color: #c9d1d9;
+    --heading-color: #f0f6fc;
+    --border-color: #30363d;
+    --input-focus-color: #58a6ff;
+    --input-caret-color: #58a6ff;
+    --country-card-background: linear-gradient(
+        135deg,
+        #21262d 0%,
+        #161b22 100%
+    );
+    --country-card-color: #c9d1d9;
+    --country-card-h3: #f0f6fc;
+    --country-card-p: #f0f6fc;
+    --hover-background: #313944;
+    --input-background: #161b22;
+    --year-switcher-button-color: #f0f6fc;
+    --country-item-background-color: #21262d;
+    --light-gray: #8b949e;
+    --holiday-item-background: #161b22;
+    --panel-background: #21262d;
+    --button-hover-color: #1f6feb;
+    --button-active-color: #238636;
+    --navbar-background-color: #000000;
+    --navbar-color: #24292e;
+    --navbar-logo-color: #fff;
+    --nav-link-color: #c9d1d9;
+    --router-link-exact-active-color: #f0f6fc;
+}
+
+// Mixins
+
+@mixin transition($properties...) {
+    @each $property in $properties {
+        transition: $property var(--transition-speed) ease-in-out;
+    }
+}
+
+@mixin box-shadow {
+    box-shadow: var(--box-shadow-light);
+}
+
+@mixin hover-effect {
+    &:hover {
+        box-shadow: var(--box-shadow-hover);
+    }
+}
+
+/* Main scrollbar styles */
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--background-color);
+    border-radius: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        to bottom,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+    border-radius: 6px;
+    border: 2px solid var(--background-color);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+        to bottom,
+        var(--button-hover-color),
+        var(--secondary-color)
+    );
 }

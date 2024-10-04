@@ -85,18 +85,19 @@ const switchYear = (year: number) => {
 <style scoped lang="scss">
 .country {
     padding: 30px;
-    background-color: #f8f9fa;
+    background-color: var(--background-color);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    @include box-shadow;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     h1 {
         margin-bottom: 20px;
-        font-size: 26px;
-        color: #2c3e50;
+        font-size: var(--heading-font-size);
+        color: var(--heading-color);
         text-align: center;
+        cursor: default;
     }
 
     .holiday-item {
@@ -105,25 +106,24 @@ const switchYear = (year: number) => {
         flex-direction: column;
         gap: 10px;
         max-width: 500px;
-        background-color: #fff;
+        background-color: var(--holiday-item-background);
         margin: 10px 0;
         padding: 15px;
         border-radius: 8px;
-        border: 1px solid #ddd;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-        transition:
-            background-color 0.2s ease,
-            box-shadow 0.2s ease;
+        border: 1px solid var(--border-color);
+        cursor: default;
+        @include box-shadow;
+        @include transition(all);
 
         p {
             margin: 0;
-            font-size: 16px;
-            color: #333;
+            font-size: var(--body-font-size);
+            color: var(--text-color);
         }
 
         &:hover {
-            background-color: #eaf2e3;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background-color: var(--hover-background);
+            @include hover-effect;
         }
     }
 
@@ -132,28 +132,26 @@ const switchYear = (year: number) => {
         justify-content: center;
         margin-top: 30px;
         padding-top: 15px;
-        border-top: 1px solid #e6e6e6;
+        border-top: 1px solid var(--border-color);
 
         button {
             margin: 0 5px;
             padding: 10px 20px;
             border: none;
             border-radius: 20px;
-            background-color: #007bff;
-            color: white;
-            font-size: 14px;
+            background-color: var(--primary-color);
+            color: var(--year-switcher-button-color);
+            font-size: var(--small-font-size);
             cursor: pointer;
-            transition:
-                background-color 0.2s ease,
-                transform 0.2s ease;
+            @include transition(background-color, transform);
 
             &:hover {
-                background-color: #0056b3;
+                background-color: var(--button-hover-color);
                 transform: scale(1.05);
             }
 
             &.active {
-                background-color: #28a745;
+                background-color: var(--button-active-color);
                 transform: scale(1.1);
             }
         }

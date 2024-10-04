@@ -28,7 +28,7 @@ onMounted(async () => {
 <style scoped lang="scss">
 .home {
     padding: 30px;
-    background-color: #f8f9fa;
+    background-color: var(--background-color);
     min-height: 100vh;
 
     .content {
@@ -40,12 +40,16 @@ onMounted(async () => {
 
     .left-panel,
     .right-panel {
-        background-color: #ffffff;
+        background-color: var(--panel-background);
         border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        @include box-shadow;
         padding: 20px;
         width: 48%;
-        transition: all 0.3s ease-in-out;
+        @include transition(all);
+
+        &:hover {
+            @include hover-effect;
+        }
     }
 }
 </style>

@@ -1,5 +1,6 @@
 const { defineConfig } = require('@vue/cli-service');
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = defineConfig({
     transpileDependencies: true,
@@ -14,4 +15,11 @@ module.exports = defineConfig({
     },
     publicPath:
         process.env.NODE_ENV === 'production' ? '/country-info-app/' : '/',
+    css: {
+        loaderOptions: {
+            scss: {
+                additionalData: `@import "@/styles/_globals.scss";`,
+            },
+        },
+    },
 });

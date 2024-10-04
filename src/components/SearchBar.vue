@@ -52,23 +52,24 @@ const navigateToCountry = (countryCode: string) => {
     align-items: center;
     margin-bottom: 20px;
     padding: 15px;
-    background-color: #f5f7fa;
+    background-color: var(--background-color);
     border-radius: 8px;
-    border: 1px solid #e6e6e6;
+    border: 1px solid var(--border-color);
 
     input {
         padding: 10px;
         width: 100%;
         max-width: 350px;
-        border: 1px solid #ddd;
+        border: 1px solid var(--border-color);
         border-radius: 20px;
-        font-size: 15px;
-        background-color: #fff;
-        color: #2c3e50;
-        transition: border-color 0.2s ease;
+        font-size: var(--body-font-size);
+        background-color: var(--input-background);
+        color: var(--text-color);
+        caret-color: var(--input-caret-color);
+        @include transition(border-color);
 
         &:focus {
-            border-color: #4caf50;
+            border-color: var(--input-focus-color);
             outline: none;
         }
     }
@@ -80,21 +81,46 @@ const navigateToCountry = (countryCode: string) => {
         border-radius: 6px;
         max-height: 180px;
         overflow-y: auto;
-        border: 1px solid #ddd;
+        border: 1px solid var(--border-color);
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: var(--background-color);
+            border-radius: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: linear-gradient(
+                to bottom,
+                var(--primary-color),
+                var(--secondary-color)
+            );
+            border-radius: 6px;
+            border: 2px solid var(--background-color);
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(
+                to bottom,
+                var(--button-hover-color),
+                var(--secondary-color)
+            );
+        }
 
         .country-item {
             padding: 10px 15px;
             cursor: pointer;
-            background-color: #fff;
-            border-bottom: 1px solid #e6e6e6;
-            color: #333;
-            transition:
-                background-color 0.2s ease,
-                color 0.2s ease;
+            background-color: var(--country-item-background-color);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-color);
+            @include transition(background-color, color);
 
             &:hover {
-                background-color: #eaf2e3;
-                color: #2c3e50;
+                background-color: var(--hover-background);
+                color: var(--heading-color);
             }
 
             &:last-child {

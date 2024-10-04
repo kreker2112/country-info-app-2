@@ -57,41 +57,40 @@ const getNextHoliday = (holidays: Holiday[]): Holiday | undefined => {
     text-align: left;
 
     h2 {
-        font-size: 24px;
+        font-size: var(--heading-font-size);
         margin-bottom: 20px;
-        color: #2c3e50;
+        color: var(--heading-color);
+        cursor: default;
     }
 
     .country-card {
-        background: linear-gradient(135deg, #42b983 0%, #2c3e50 100%);
-        color: white;
+        background: var(--country-card-background);
+        color: var(--country-card-color);
         border-radius: 10px;
         padding: 20px;
         margin: 10px 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
+        @include transition(transform, box-shadow);
+        cursor: pointer;
 
         &:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            @include hover-effect;
         }
 
         h3 {
             margin-bottom: 10px;
             font-size: 20px;
-            color: #fff;
+            color: var(--country-card-h3);
         }
 
         p {
-            font-size: 16px;
+            font-size: var(--body-font-size);
             margin: 5px 0;
-            color: #f9f9f9;
+            color: var(--light-gray);
 
             &:nth-of-type(2) {
-                font-size: 14px;
-                color: #d3e4e8;
+                font-size: var(--small-font-size);
+                color: var(--light-gray);
             }
         }
     }

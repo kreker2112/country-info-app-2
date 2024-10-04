@@ -3,11 +3,14 @@
         <div class="logo">🌍 Country Info</div>
         <div class="nav-links">
             <router-link to="/" class="nav-link">Home</router-link>
+            <ThemeToggleButton />
         </div>
     </nav>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ThemeToggleButton from '@/components/ThemeToggleButton.vue';
+</script>
 
 <style scoped lang="scss">
 .navbar {
@@ -15,13 +18,15 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
-    background-color: #2c3e50;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--navbar-background-color);
+    color: var(--navbar-color);
+    @include box-shadow;
 
     .logo {
         font-size: 24px;
         font-weight: bold;
+        color: var(--navbar-logo-color);
+        cursor: default;
     }
 
     .nav-links {
@@ -29,20 +34,20 @@
         gap: 15px;
 
         .nav-link {
-            color: white;
+            color: var(--nav-link-color);
             text-decoration: none;
             font-weight: 500;
             padding: 8px 16px;
             border-radius: 4px;
-            transition: background-color 0.3s ease;
+            @include transition(background-color);
 
             &:hover {
-                background-color: #42b983;
+                background-color: var(--secondary-color);
             }
 
             &.router-link-exact-active {
-                background-color: #42b983;
-                color: white;
+                background-color: var(--secondary-color);
+                color: var(--router-link-exact-active-color);
             }
         }
     }
