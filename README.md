@@ -36,13 +36,13 @@ To get a local copy of the project, follow these steps:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/kreker2112/country-info-app.git
+    git clone https://github.com/kreker2112/country-info-app-2.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd country-info-app
+    cd country-info-app-2
     ```
 
 3. Install the required dependencies using Yarn:
@@ -84,7 +84,9 @@ To deploy the application to GitHub Pages, follow these steps:
     ```javascript
     module.exports = {
         publicPath:
-            process.env.NODE_ENV === 'production' ? '/country-info-app/' : '/',
+            process.env.NODE_ENV === 'production'
+                ? '/country-info-app-2/'
+                : '/',
     };
     ```
 
