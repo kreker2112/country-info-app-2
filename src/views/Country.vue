@@ -104,6 +104,7 @@ const switchYear = (year: number) => {
         width: 100%;
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 10px;
         max-width: 500px;
         background-color: var(--holiday-item-background);
